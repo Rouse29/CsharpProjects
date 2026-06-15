@@ -1,0 +1,75 @@
+Create an application called “Career Coach Assistant” that automates the process of reviewing a student’s CV, comparing it with a job profile, identifying skill gaps, generating training recommendations, and producing a personalized learning schedule.
+
+The application must include the following cards:
+
+-----------------------------------------------------------
+1. INPUT CARDS
+-----------------------------------------------------------
+
+A) File Upload Card — Title: “Upload CV”
+• Allows uploading DOCX, PDF, or text files.
+• The CV will be used as the primary source for skill and experience extraction.
+
+B) File Upload Card — Title: “Upload Job Profile”
+• Allows uploading DOCX, PDF, or text files.
+• This job description defines the expected qualifications and required skills.
+
+C) Text Input Card — Title: “Coach Recommendation”
+• Allows the coach to add clarifying notes (optional).
+• Should NOT be required to generate outputs but included as supplemental context.
+
+-----------------------------------------------------------
+2. OUTPUT CARDS
+-----------------------------------------------------------
+
+A) Output Card — Title: “Skill Gap Analysis”
+Prompt:
+“Analyze the student’s CV provided in @Upload CV and compare it with the job profile provided in @Upload Job Profile. Identify and list all the skill gaps between the student’s current qualifications and the job requirements.
+
+Format the output as:
+1. Relevant skills the candidate already has.
+2. Skills required by the job that are missing or underdeveloped.
+3. Additional insights based on the coach’s optional notes in @Coach Recommendation (only include if provided).
+4. Percentage match between the candidate and the job profile.
+
+Ensure the analysis is structured, concise, and easy for a career coach to review.”
+
+-----------------------------------------------------------
+
+B) Output Card — Title: “Training Recommendations”
+Prompt:
+“Based on the skill gaps identified in @Skill Gap Analysis, generate specific training recommendations to help the student bridge those gaps.
+
+For each missing or weak skill, include:
+1. Recommended online courses (paid and free)
+2. Certifications (industry-recognized)
+3. Books, articles, and tutorials
+4. Practical projects the student can complete
+5. Estimated time required to develop each skill
+
+Prioritize the recommendations according to job relevance and learning impact.”
+
+-----------------------------------------------------------
+
+C) Output Card — Title: “Suggested Learning Schedule”
+Prompt:
+“Using the recommendations generated in @Training Recommendations and the insights from @Skill Gap Analysis, produce a personalized weekly learning plan.
+
+The schedule must include:
+• Estimated hours per day or per week
+• Recommended order in which the student should learn the topics
+• Expected completion timeline
+• Adjustments for beginner vs. intermediate learners
+• Balance between theory, practice, and hands-on activities
+
+Format the schedule clearly and concisely.”
+
+-----------------------------------------------------------
+3. GENERAL BEHAVIOR
+-----------------------------------------------------------
+
+• All output cards must run automatically in sequence after their required inputs are available.
+• Do NOT mix or merge output cards; each must produce its own independent result.
+• Ensure references (@Upload CV, @Upload Job Profile, @Skill Gap Analysis, @Training Recommendations) link properly.
+• The application must work even if the coach does not provide additional notes.
+• The tone must be professional, clear, and suitable for a real career coaching workflow.
